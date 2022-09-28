@@ -1,8 +1,9 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Arial Nova',Arial, 'Helvetica Neue', Helvetica, sans-serif;    
     line-height: 1.2;
+    color: #094E5D;
 }
 
 a, .btn-link {
