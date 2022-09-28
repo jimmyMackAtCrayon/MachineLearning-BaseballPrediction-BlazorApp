@@ -3,19 +3,19 @@
 @inject ILogger<BaseballCardParent> logger
 
 <div class="card">
-    <div style="display: flex;background-color: #f7f7f9" class="px-1 pt-2">
-        <div style="width: 24px; background-color: #f7f7f9;">
-            <a target="_blank" href="@WhatIfUrl" style="background-color: #f7f7f9">
+    <div style="display: flex;background-color: #E6E4D9;" class="px-1 pt-2">
+        <div style="width: 24px; background-color: #E6E4D9;">
+            <a target="_blank" href="@WhatIfUrl" style="background-color: #E6E4D9;">
                 <img src="/css/open-iconic/svg/share-boxed.svg" class="iconic" alt="Permanent Link" width="18" height="18">
             </a>
         </div>
-        <div style="flex-grow:1;">
+        <div style="flex-grow:1;background-color:#E6E4D9;">
             <b>@Title</b> - @SubTitle
         </div>
     </div>
     <div class="card-body">
         <form>
-            <div class="form-group row" style="@(StaticPrediction ? "display: none;" : string.Empty)">
+            <div class="form-group row" style="background-color: #E6E4D9; @(StaticPrediction ? "display: none;" : string.Empty)">
                 <div style="text-align: center; width: 100%;">
                     <div>
                         <label for="seasonsInput" class="">Seasons Played:</label>
@@ -26,8 +26,8 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row">
+            <div class="container" style="background-color: #E6E4D9;">
+                <div class="row" style="background-color: #E6E4D9;">
                     @if (this.MultipleModels)
                     {
                         <div class="col-md-6 col-xl-6">

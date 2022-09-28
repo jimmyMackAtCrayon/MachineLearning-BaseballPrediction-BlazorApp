@@ -1,94 +1,94 @@
 ﻿@page "/"
 @inject NavigationManager NavigationManager
 @inject ILogger<Index> logger
+<div style="background-color: #F1F2ED;">
+    <h3>Welcome to the Baseball Machine Learning Workbench</h3>
 
-<h3>Welcome to the Baseball Machine Learning Workbench</h3>
+    <div class="containerFadeIn">
+        <p>The Baseball Machine Learning Workbench is an interactive web application. Explore various analytics, decision intelligence & Machine Intelligence techniques using historical baseball data.</p>
 
-<div class="containerFadeIn">
-    <p>The Baseball Machine Learning Workbench is an interactive web application. Explore various analytics, decision intelligence & Machine Intelligence techniques using historical baseball data.</p>
-
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="Images/PredictionBreakdown-DerekJeter.png" width="325" alt="Prediction breakdown">
-            </a>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="Images/PredictionBreakdown-DerekJeter.png" width="325" alt="Prediction breakdown">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="Images/VariableResponse-AllStarAppearances.png" width="325" alt="Variable Response">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="Images/LearnerPredictionXgBoost.png" width="325" alt="Prediction Matrix">
+                </a>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="Images/VariableResponse-AllStarAppearances.png" width="325" alt="Variable Response">
-            </a>
+    </div>
+    <br />
+    <div class="containerFadeIn">
+        <div style="background-color: #e6e4d9;">
+            <h6 class="border-bottom border-gray pb-2 mb-0" style="background-color: #e6e4d9;"><b>Available Scenarios:</b></h6>
+            <div class="media text-muted pt-3" @onclick="NavigatePageToRulesEngine" style="cursor: pointer;background-color: #e6e4d9;">
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px; margin-right: 5px;" data-holder-rendered="true"></span>
+                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+                    <strong class="d-block text-black-dark">What-If Analysis - Rules Engine</strong>
+                    This scenario showcases how a simple rules engine can be used to attempt to predict baseball Hall Of Fame <b>Induction</b>.
+                    No Machine Intelligence is used, rather a simple rule:<br />
+                    <b> If sum of career HRs >= 500 then Hall of Fame Induction is True</b> (else Hall of Fame Induction is False).
+                </p>
+            </div>
+            <div class="media text-muted pt-3" @onclick="NavigatePageToSingleModel" style="cursor: pointer;background-color: #e6e4d9;">
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px; margin-right: 5px;" data-holder-rendered="true"></span>
+                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">What-If Analysis - Single Model</strong>
+                    This scenario showcases how a Machine Intelligence model can be used to attempt to predict baseball Hall Of Fame <b>Induction</b>.
+                    Machine Intelligence is used to classify the batter baseball data.<br />
+                    <b>The key difference over the rules engine approach is that a probability is returned; allowing a decision to be made on a probability threshhold</b> and other statistical metrics.
+                </p>
+            </div>
+            <div class="media text-muted pt-3" @onclick="NavigatePageToMultipleModels" style="cursor: pointer;background-color: #e6e4d9;">
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px;margin-right: 5px;" data-holder-rendered="true"></span>
+                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">What-If Analysis - Multiple Models</strong>
+                    This scenario showcases how <b>multiple</b> Machine Intelligence models can be used to attempt to predict appearing on a Hall Of Fame <b>Ballot</b> & Hall Of Fame <b>Induction</b>.
+                    Machine Intelligence is used to classify the batter baseball data.<br />
+                    <b>The multiple models implementation showcases progression to Hall of Fame Induction.</b> First, the player needs to be considered on being on the Hall of Fame Ballot then considered for Hall of Fame Induction.
+                    This can be used to aid the decision maker in providing multiple supporting conclusions provided by machine learning models (experts).
+                </p>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-xs-4 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="Images/LearnerPredictionXgBoost.png" width="325" alt="Prediction Matrix">
-            </a>
+    </div>
+    <br />
+    <div class="containerFadeIn">
+        <div style="background-color: #e6e4d9;">
+            <h6 class="border-bottom border-gray pb-2 mb-0" style="background-color: #e6e4d9;"><b>Machine Learning Probability Statement characteristics:</b></h6>
+            <ul class="list-group list-group-flush" style="background-color: #e6e4d9;">
+                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                    <b>Baseball data used:</b> MLB <strong>batter</strong> data aggregated at the season level from 1876 to 2019.
+                    (Note: Only players that were predominatly position players are included, pitchers data has been omitted.)
+                </li>
+                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                    The prediction of Hall of Fame Ballot or Induction is <b>surfaced as a probability percentage</b> between 0% and 100%.
+                </li>
+                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                    <b>Hall of Fame Ballot</b> defined as the presence of the candidate batter on any of the yearly vote total for the Hall of Fame.
+                </li>
+                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                    <b>Hall of Fame Induction</b> defined as the candidate achieving 75% of the necessary vote by the BWAA electors or special BWAA sessions.
+                    Note: This explicitly excludes candidates in the Hall of Fame sent in by other means (i.e. veteran's comittee). More info: https://baseballhall.org/hall-of-famers/rules/bbwaa-rules-for-election
+                </li>
+                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                    The machine learning models have been built using the <b>Generalized Additive Models (GAM)</b> algorithm using ML.NET.
+                </li>
+                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                    The following batting features were used to build the ML models: Years Played, At Bats, Runs, Hits, Doubles, Triples, Home Runs, RBIs, Stolen Bases,
+                    Batting Average, Slugging Percentage, All-Star Appearances, MVPs, Triple Crowns, Gold Gloves, Total Bases, Total Player Awards.
+                </li>
+            </ul>
         </div>
     </div>
 </div>
-
-<div class="containerFadeIn">
-    <div class="my-3 p-3 bg-white rounded box-shadow">
-        <h6 class="border-bottom border-gray pb-2 mb-0"><b>Available Scenarios:</b></h6>
-        <div class="media text-muted pt-3" @onclick="NavigatePageToRulesEngine" style="cursor: pointer;">
-            <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px; margin-right: 5px;" data-holder-rendered="true"></span>
-            <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-                <strong class="d-block text-black-dark">What-If Analysis - Rules Engine</strong>
-                This scenario showcases how a simple rules engine can be used to attempt to predict baseball Hall Of Fame <b>Induction</b>.
-                No Machine Intelligence is used, rather a simple rule:<br />
-                <b> If sum of career HRs >= 500 then Hall of Fame Induction is True</b> (else Hall of Fame Induction is False).
-            </p>
-        </div>
-        <div class="media text-muted pt-3" @onclick="NavigatePageToSingleModel" style="cursor: pointer;">
-            <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px; margin-right: 5px;" data-holder-rendered="true"></span>
-            <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-                <strong class="d-block text-gray-dark">What-If Analysis - Single Model</strong>
-                This scenario showcases how a Machine Intelligence model can be used to attempt to predict baseball Hall Of Fame <b>Induction</b>.
-                Machine Intelligence is used to classify the batter baseball data.<br />
-                <b>The key difference over the rules engine approach is that a probability is returned; allowing a decision to be made on a probability threshhold</b> and other statistical metrics.
-            </p>
-        </div>
-        <div class="media text-muted pt-3" @onclick="NavigatePageToMultipleModels" style="cursor: pointer;">
-            <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px;margin-right: 5px;" data-holder-rendered="true"></span>
-            <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-                <strong class="d-block text-gray-dark">What-If Analysis - Multiple Models</strong>
-                This scenario showcases how <b>multiple</b> Machine Intelligence models can be used to attempt to predict appearing on a Hall Of Fame <b>Ballot</b> & Hall Of Fame <b>Induction</b>.
-                Machine Intelligence is used to classify the batter baseball data.<br />
-                <b>The multiple models implementation showcases progression to Hall of Fame Induction.</b> First, the player needs to be considered on being on the Hall of Fame Ballot then considered for Hall of Fame Induction.
-                This can be used to aid the decision maker in providing multiple supporting conclusions provided by machine learning models (experts).
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="containerFadeIn">
-    <div class="my-3 p-3 bg-white rounded box-shadow">
-        <h6 class="border-bottom border-gray pb-2 mb-0"><b>Machine Learning Probability Statement characteristics:</b></h6>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item list-group-item-light">
-                <b>Baseball data used:</b> MLB <strong>batter</strong> data aggregated at the season level from 1876 to 2019.
-                (Note: Only players that were predominatly position players are included, pitchers data has been omitted.)
-            </li>
-            <li class="list-group-item list-group-item-light">
-                The prediction of Hall of Fame Ballot or Induction is <b>surfaced as a probability percentage</b> between 0% and 100%.
-            </li>
-            <li class="list-group-item list-group-item-light">
-                <b>Hall of Fame Ballot</b> defined as the presence of the candidate batter on any of the yearly vote total for the Hall of Fame.
-            </li>
-            <li class="list-group-item list-group-item-light">
-                <b>Hall of Fame Induction</b> defined as the candidate achieving 75% of the necessary vote by the BWAA electors or special BWAA sessions.
-                Note: This explicitly excludes candidates in the Hall of Fame sent in by other means (i.e. veteran's comittee). More info: https://baseballhall.org/hall-of-famers/rules/bbwaa-rules-for-election
-            </li>
-            <li class="list-group-item list-group-item-light">
-                The machine learning models have been built using the <b>Generalized Additive Models (GAM)</b> algorithm using ML.NET.
-            </li>
-            <li class="list-group-item list-group-item-light">
-                The following batting features were used to build the ML models: Years Played, At Bats, Runs, Hits, Doubles, Triples, Home Runs, RBIs, Stolen Bases,
-                Batting Average, Slugging Percentage, All-Star Appearances, MVPs, Triple Crowns, Gold Gloves, Total Bases, Total Player Awards.
-            </li>
-        </ul>
-    </div>
-</div>
-
 @code {
 
     private void NavigatePageToRulesEngine()

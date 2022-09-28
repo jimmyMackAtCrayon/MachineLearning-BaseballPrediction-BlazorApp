@@ -4,6 +4,7 @@ html, body {
     font-family: 'Arial Nova',Arial, 'Helvetica Neue', Helvetica, sans-serif;    
     line-height: 1.2;
     color: #094E5D;
+    background-color: #F1F2ED;
 }
 
 a, .btn-link {
@@ -343,11 +344,12 @@ span.sliderLabel {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     min-height: 200px;
+   
 }
 
 .card-body {
     padding: 0.75rem;
-    background-color: #fbf7f5;
+    background-color: #E6E4D9;
 }
 
 .blazored-typeahead {
@@ -502,6 +504,10 @@ ul {
     -moz-animation: fadeIn ease 1.75s;
     -o-animation: fadeIn ease 1.75s;
     -ms-animation: fadeIn ease 1.75s;
+    display:block;
+    background-color: #E6E4D9;
+    border-radius:10px;
+    padding:1%;
 }
 
 @keyframes fadeIn {
