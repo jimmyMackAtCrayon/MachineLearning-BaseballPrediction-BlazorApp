@@ -265,10 +265,8 @@ span.sliderLabel {
 .blazored-typeahead {
     position: relative;
     width: 100%;
-    box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
-    border-radius: 0px;
-    color: #2f3233;
-    margin-top: 5px;
+    border: 1px solid #FF6A4C;
+    color: #094E5D;
 }
 
 .card-header {

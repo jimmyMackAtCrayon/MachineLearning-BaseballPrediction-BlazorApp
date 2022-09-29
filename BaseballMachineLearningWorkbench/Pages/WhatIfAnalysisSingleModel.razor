@@ -9,38 +9,40 @@
 
 @if (isLoaded)
 {
-    <small class="form-text text-muted"><b>Select or Search</b> any MLB Batter to perform what-if analysis:</small>
-    <BlazoredTypeahead SearchMethod="@SearchBaseballPlayers"
+    <small class="form-text text-muted"><b>Select or Search</b> any MLB Batter to perform what-if analysis:</small>    
+        <BlazoredTypeahead SearchMethod="@SearchBaseballPlayers"
                        @bind-Value="@selectedBatter"
-                       Debounce="150" MaximumSuggestions="25"
+                       Debounce="150" MaximumSuggestions="10"
                        EnableDropDown="true" ShowDropDownOnFocus="true">
-        <SelectedTemplate>
-            <b>@context.FullPlayerName - &nbsp;</b> (Years Played: @context.YearsPlayed, Last Season Played: @context.LastYearPlayed)
-        </SelectedTemplate>
-        <ResultTemplate>
-            <b>@context.FullPlayerName - &nbsp;</b> (Years Played: @context.YearsPlayed, Last Season Played: @context.LastYearPlayed)
-        </ResultTemplate>
-        <NotFoundTemplate>
-            Sorry, there weren't any baseball players found.
-        </NotFoundTemplate>
-    </BlazoredTypeahead>
 
+
+            <SelectedTemplate Context="context">
+                <b>@context.FullPlayerName - &nbsp;</b> (Years Played: @context.YearsPlayed, Last Season Played: @context.LastYearPlayed)
+            </SelectedTemplate>
+            <ResultTemplate Context="context">
+                <b>@context.FullPlayerName - &nbsp;</b> (Years Played: @context.YearsPlayed, Last Season Played: @context.LastYearPlayed)
+            </ResultTemplate>
+            <NotFoundTemplate>
+                Sorry, there weren't any baseball players found.
+            </NotFoundTemplate>
+
+        </BlazoredTypeahead>         
     <p />
     <BaseballCardParent MultipleModels=false
-                        Title="Static Prediction" SubTitle="Based on player's actual career statistics"
-                        Notes="Single prediction of probability of the player being Inducted to Hall Of Fame."
-                        StaticPrediction=true MLModelPredictionType=MLModelPredictionType.InductedToHallOfFameGeneralizedAdditiveModel
-                        UseMachineLearningModel=true
-                        BaseBallBatter=selectedBatter 
-                        NumberOfSeasonsPlayed=numberOfSeasonsPlayed/>
+                    Title="Static Prediction" SubTitle="Based on player's actual career statistics"
+                    Notes="Single prediction of probability of the player being Inducted to Hall Of Fame."
+                    StaticPrediction=true MLModelPredictionType=MLModelPredictionType.InductedToHallOfFameGeneralizedAdditiveModel
+                    UseMachineLearningModel=true
+                    BaseBallBatter=selectedBatter
+                    NumberOfSeasonsPlayed=numberOfSeasonsPlayed />
     <p />
     <BaseballCardParent MultipleModels=false
-                        Title="Dynamic Prediction" SubTitle="Based on player's yearly pro-rated career statistics"
-                        Notes="What-If prediction based on above selected player's single season averages multiplied the slider value of seasons played."
-                        StaticPrediction=false MLModelPredictionType=MLModelPredictionType.InductedToHallOfFameGeneralizedAdditiveModel
-                        UseMachineLearningModel=true
-                        BaseBallBatter=selectedBatter 
-                        NumberOfSeasonsPlayed=numberOfSeasonsPlayed/>
+                    Title="Dynamic Prediction" SubTitle="Based on player's yearly pro-rated career statistics"
+                    Notes="What-If prediction based on above selected player's single season averages multiplied the slider value of seasons played."
+                    StaticPrediction=false MLModelPredictionType=MLModelPredictionType.InductedToHallOfFameGeneralizedAdditiveModel
+                    UseMachineLearningModel=true
+                    BaseBallBatter=selectedBatter
+                    NumberOfSeasonsPlayed=numberOfSeasonsPlayed />
 
 }
 else
