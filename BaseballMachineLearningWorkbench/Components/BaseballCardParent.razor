@@ -18,11 +18,11 @@
             <div class="form-group row" style="background-color: #E6E4D9; @(StaticPrediction ? "display: none;" : string.Empty)">
                 <div style="text-align: center; width: 100%;">
                     <div>
-                        <label for="seasonsInput" class="">Seasons Played:</label>
-                        <span class="sliderLabel">1 </span>
+                        <label for="seasonsInput" class="" style="color:#094E5D">Seasons Played:</label>
+                        <span class="sliderLabel" style="color:#094E5D">1 </span>
                         <input type="range" class="" style="width: 50%;" min="1" max="30" step="1" value="@numberOfSeasonsPlayed"
                                @oninput="@SliderMoved" />
-                        <span class="sliderLabel"> 30</span>
+                        <span class="sliderLabel" style="color:#094E5D"> 30</span>
                     </div>
                 </div>
             </div>
