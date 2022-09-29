@@ -29,8 +29,9 @@
     <div class="containerFadeIn">
         <div style="background-color: #e6e4d9;">
             <h6 class="border-bottom border-gray pb-2 mb-0" style="background-color: #e6e4d9;"><b>Available Scenarios:</b></h6>
+            <hr style="margin-top:-1px;" />
             <div class="media text-muted pt-3" @onclick="NavigatePageToRulesEngine" style="cursor: pointer;background-color: #e6e4d9;">
-                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px; margin-right: 5px;" data-holder-rendered="true"></span>
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px; margin-right: 10px;" data-holder-rendered="true"></span>
                 <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                     <strong class="d-block text-black-dark">What-If Analysis - Rules Engine</strong>
                     This scenario showcases how a simple rules engine can be used to attempt to predict baseball Hall Of Fame <b>Induction</b>.
@@ -38,8 +39,9 @@
                     <b> If sum of career HRs >= 500 then Hall of Fame Induction is True</b> (else Hall of Fame Induction is False).
                 </p>
             </div>
+            
             <div class="media text-muted pt-3" @onclick="NavigatePageToSingleModel" style="cursor: pointer;background-color: #e6e4d9;">
-                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px; margin-right: 5px;" data-holder-rendered="true"></span>
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px; margin-right: 10px;" data-holder-rendered="true"></span>
                 <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                     <strong class="d-block text-gray-dark">What-If Analysis - Single Model</strong>
                     This scenario showcases how a Machine Intelligence model can be used to attempt to predict baseball Hall Of Fame <b>Induction</b>.
@@ -47,8 +49,9 @@
                     <b>The key difference over the rules engine approach is that a probability is returned; allowing a decision to be made on a probability threshhold</b> and other statistical metrics.
                 </p>
             </div>
+            
             <div class="media text-muted pt-3" @onclick="NavigatePageToMultipleModels" style="cursor: pointer;background-color: #e6e4d9;">
-                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px;margin-right: 5px;" data-holder-rendered="true"></span>
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:5px;margin-right: 10px;" data-holder-rendered="true"></span>
                 <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                     <strong class="d-block text-gray-dark">What-If Analysis - Multiple Models</strong>
                     This scenario showcases how <b>multiple</b> Machine Intelligence models can be used to attempt to predict appearing on a Hall Of Fame <b>Ballot</b> & Hall Of Fame <b>Induction</b>.
@@ -57,35 +60,59 @@
                     This can be used to aid the decision maker in providing multiple supporting conclusions provided by machine learning models (experts).
                 </p>
             </div>
+            
         </div>
     </div>
     <br />
     <div class="containerFadeIn">
         <div style="background-color: #e6e4d9;">
             <h6 class="border-bottom border-gray pb-2 mb-0" style="background-color: #e6e4d9;"><b>Machine Learning Probability Statement characteristics:</b></h6>
-            <ul class="list-group list-group-flush" style="background-color: #e6e4d9;">
-                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+            <hr style="margin-top:-1px;" />
+            <div class="media text-muted pt-3" @onclick="NavigatePageToRulesEngine" style="cursor: pointer;background-color: #e6e4d9;vertical-align:auto;">
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:25px; margin-right: 10px;margin-top:-5px;" data-holder-rendered="true"></span>
+                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                     <b>Baseball data used:</b> MLB <strong>batter</strong> data aggregated at the season level from 1876 to 2019.
                     (Note: Only players that were predominatly position players are included, pitchers data has been omitted.)
-                </li>
-                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                </p>
+            </div>
+            
+            <div class="media text-muted pt-3" @onclick="NavigatePageToRulesEngine" style="cursor: pointer;background-color: #e6e4d9 vertical-align:auto;">
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:25px; margin-right: 10px;margin-top:-5px;" data-holder-rendered="true"></span>
+                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                     The prediction of Hall of Fame Ballot or Induction is <b>surfaced as a probability percentage</b> between 0% and 100%.
-                </li>
-                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                </p>
+            </div>
+            
+            <div class="media text-muted pt-3" @onclick="NavigatePageToRulesEngine" style="cursor: pointer;background-color: #e6e4d9;vertical-align:auto;">
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:25px; margin-right: 10px; margin-top:-5px;" data-holder-rendered="true"></span>
+                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                     <b>Hall of Fame Ballot</b> defined as the presence of the candidate batter on any of the yearly vote total for the Hall of Fame.
-                </li>
-                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                </p>
+            </div>
+            
+            <div class="media text-muted pt-3" @onclick="NavigatePageToRulesEngine" style="cursor: pointer;background-color: #e6e4d9;vertical-align:auto;">
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:25px; margin-right: 10px;" data-holder-rendered="true"></span>
+                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                     <b>Hall of Fame Induction</b> defined as the candidate achieving 75% of the necessary vote by the BWAA electors or special BWAA sessions.
                     Note: This explicitly excludes candidates in the Hall of Fame sent in by other means (i.e. veteran's comittee). More info: https://baseballhall.org/hall-of-famers/rules/bbwaa-rules-for-election
-                </li>
-                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                </p>
+            </div>
+            
+            <div class="media text-muted pt-3" @onclick="NavigatePageToRulesEngine" style="cursor: pointer;background-color: #e6e4d9;vertical-align:auto;">
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:25px; margin-right: 10px;margin-top:-7px;" data-holder-rendered="true"></span>
+                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                     The machine learning models have been built using the <b>Generalized Additive Models (GAM)</b> algorithm using ML.NET.
-                </li>
-                <li class="list-group-item list-group-item-light" style="background-color: #e6e4d9;">
+                </p>
+            </div>
+            
+            <div class="media text-muted pt-3" @onclick="NavigatePageToRulesEngine" style="cursor: pointer;background-color: #e6e4d9;vertical-align:auto;">
+                <span style="width: 32px; height: 32px;background-color:#FF6A4C; border-radius:25px; margin-right: 10px;" data-holder-rendered="true"></span>
+                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                     The following batting features were used to build the ML models: Years Played, At Bats, Runs, Hits, Doubles, Triples, Home Runs, RBIs, Stolen Bases,
                     Batting Average, Slugging Percentage, All-Star Appearances, MVPs, Triple Crowns, Gold Gloves, Total Bases, Total Player Awards.
-                </li>
-            </ul>
+                </p>
+            </div>
+
         </div>
     </div>
 </div>
