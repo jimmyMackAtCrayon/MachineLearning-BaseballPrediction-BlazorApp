@@ -7,14 +7,14 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["BaseballMachineLearningWorkbench.csproj", ""]
-RUN dotnet restore "./BaseballMachineLearningWorkbench.csproj"
+COPY ["BaseballMachineLearningWorkbench/BaseballMachineLearningWorkbench.csproj", "BaseballMachineLearningWorkbench/"]
+RUN dotnet restore "BaseballMachineLearningWorkbench/BaseballMachineLearningWorkbench.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/BaseballMachineLearningWorkbench"
 RUN dotnet build "BaseballMachineLearningWorkbench.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "BaseballMachineLearningWorkbench.csproj" -c Release -o /app/publish
+RUN dotnet publish "BaseballMachineLearningWorkbench.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

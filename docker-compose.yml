@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  baseballmachinelearningworkbench:
+    image: ${DOCKER_REGISTRY-}baseballmachinelearningworkbench
+    build:
+      context: .
+      dockerfile: BaseballMachineLearningWorkbench/Dockerfile
